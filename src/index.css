@@ -26,7 +26,8 @@ body {
 }
 header {
   grid-area: header;
-  background-color: #203040;
+  background-color: #6ca3de;
+ 
 }
 main {
   grid-area: main;
@@ -34,7 +35,7 @@ main {
 }
 footer {
   grid-area: footer;
-  background-color: #203040;
+  background-color: #6ca3de;
   color: #ffffff;
 }
 /* Common */
@@ -59,7 +60,7 @@ ul {
   list-style-type: none;
 }
 li {
-  margin-top: 1rem;
+  margin-top: 0.5rem;
 }
 button{
   padding: 1rem;
@@ -96,7 +97,7 @@ a.brand {
 }
 /* Image */
 img {
-  border-radius: 0.5rem;
+  border-radius: 2rem;
 }
 img.medium {
   max-width: 29rem;
@@ -111,21 +112,21 @@ img.larg{
 .card {
   border: 0.1rem #848fce solid;
   background-color: aliceblue;
-  border-radius: 0.5rem;
-  margin: 1rem;
+  border-radius: 1.5rem;
+  margin: 2rem;
 }
 .card-body {
-  padding: 1rem;
+  padding: 2rem;
 }
 .card-body > * {
   margin-bottom: 0.5rem;
 }
 .price {
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 /* Rating */
 .rating span {
-  color: #6ca3de;
+  color: #f2d751;
   margin: 0.1rem;
 }
 .footer {
