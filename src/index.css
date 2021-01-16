@@ -185,3 +185,23 @@ img.larg{
 .details-image {
   flex: 1 1 20rem;
 }
+/*Alert*/
+.success {
+  color: aquamarine;
+}
+.danger {
+  color: crimson;
+}
+.alert {
+  padding: 2rem;
+  border: 0.2rem;
+  border-radius: 0.6rem;
+}
+.alert.info{
+  color: blue;
+  background-color: aliceblue;
+}
+.alert.danger{
+  color: crimson;
+  background-color: aliceblue;
+}

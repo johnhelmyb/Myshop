@@ -15,8 +15,7 @@ export default function ProductPage (props) {
                 <div className="col-2">
                     <img className="larg" src={product.image} alt={product.name}></img>
                 </div>
-                
-                <div className="col-1"></div>
+                <div className="col-1">
                 <ul>
                     <li>
                         <h1>{product.name}</h1>
@@ -25,6 +24,7 @@ export default function ProductPage (props) {
                     <li>Prix: €{product.price}</li>
                     <li>Detail: <p>{product.description}</p></li>
                 </ul>
+                </div>
                 <div className="col-1"></div>
                 <div className="card card-body">
                     <ul>

@@ -1,23 +1,37 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Product from '../components/product';
+import LoadingBox from '../components/LoadingBox';
+import MessageBox from '../components/MessageBox';
 
 export default  function HomePage() {
     const [products, setProduct] = useState([]);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(false);
+
     useEffect(() => {
        const fetchdata = async () => {
-           const { data } = await axios.get('/api/products');
-           setProduct(data);
+            try {
+                setLoading(true);
+                const { data } = await axios.get('/api/products');
+                setLoading(false);
+                setProduct(data);   
+            } catch (err){
+               setError(err.message);
+               setLoading(false);
+           }
        };
         fetchdata();
     }, []);
     return(
         <div>
+            {loading ? <LoadingBox></LoadingBox> : error ? (  
+            <MessageBox variant="danger">{error}</MessageBox> ) : ( 
             <div className="row center">
                 {products.map((product) => (
-                    <Product key={product._id} product={product}></Product>
-                ))}
+                <Product key={product._id} product={product}></Product>))}
             </div>
+            )}
         </div>
     )
 }
