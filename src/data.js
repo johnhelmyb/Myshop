@@ -14,8 +14,8 @@ const data = {
         },
         { 
           _id: '2',
-          name: 'Sweatshirt',
-          category: 'Sweats',
+          name: 'Hoodie',
+          category: 'Hoodie',
           image: '/images/p2.jpg',
           price: 39,
           countInStock: 0,
@@ -26,8 +26,8 @@ const data = {
         },
         {
           _id: '3',
-          name: 'Hoodie',
-          category: 'Hoodie',
+          name: 'Sweatshirt',
+          category: 'T-Shirt',
           image: '/images/p3.jpg',
           price: 70,
           countInStock: 9,

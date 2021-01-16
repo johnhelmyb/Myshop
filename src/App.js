@@ -1,9 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom'; 
-import data from './data';
+//import data from './data';
+//import Product from './components/product';
+import { BrowserRouter, Route } from 'react-router-dom';
+import ProductPage from './Page/ProductPage';
+import HomePage from './Page/HomePage';
 
 function App() {
   return (
+    <BrowserRouter>
     <div classNameName="grid-container">
     <header className="row">
       <div>
@@ -15,31 +20,13 @@ function App() {
       </div>
     </header>
     <main>
-      <div>
-        <div className="row center">
-          {data.products.map((product) => (
-             <div key={product._id} className="card">
-               <Link to={`/product/${product._id}`}>
-               <img className="medium" src={product.image} alt={product.name} />
-               </Link>
-            <div className="card-body">
-                <Link to="product.html"><h2>{product.name}</h2></Link>
-              <div className="rating">
-                <span><i className="fa fa-star"></i></span>
-                <span><i className="fa fa-star"></i></span>
-                <span><i className="fa fa-star"></i></span>
-                <span><i className="fa fa-star"></i></span>
-                <span><i className="fa fa-star"></i></span>
-              </div>
-              <div className="price">€{product.price}</div>
-            </div>
-            </div>
-           ))}
-        </div>
-      </div>
+    <Route path="/product/:id" component={ProductPage}></Route>
+    <Route path="/" component={HomePage} exact></Route>
     </main>
+
     <footer className="row center">Conditions generals</footer>
   </div>
+  </BrowserRouter>
   );
 }
 
