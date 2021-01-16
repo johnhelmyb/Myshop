@@ -36,10 +36,10 @@ export default function ProductPage (props) {
                         </li>
                         <li>
                             <div className="row">
-                                <div>Status</div>
+                                <div>Article :</div>
                                 <div>
                                     { product.countInStock > 0 ? ( <span className="success">En Stock</span>
-                                    ) : ( <span className="error"> Pas disponible </span>
+                                    ) : ( <span className="error"> Indisponible </span>
                                     )}
                                 </div>
                             </div>

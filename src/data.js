@@ -20,8 +20,8 @@ const data = {
           price: 39,
           countInStock: 0,
           brand: 'Turing',
-          rating: 4.2,
-          numReviews: 5,
+          rating: 4.5,
+          numReviews: 9,
           description: 'Milleur qualité de cotton',
         },
         {
@@ -33,7 +33,7 @@ const data = {
           countInStock: 9,
           brand: ' Strok',
           rating: 4.5,
-          numReviews: 8,
+          numReviews: 14,
           description: 'Milleur qualité de cotton',
         }, 
         {
