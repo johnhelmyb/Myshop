@@ -88,7 +88,7 @@ button{
 
 /* Header */
 header a {
-  color: #ffffff;
+  color:aliceblue;
   padding: 2rem;
 }
 a.brand {
@@ -96,18 +96,23 @@ a.brand {
   font-size: 3rem;
   font-weight: bold;
 }
-a.catalogue {
-  color: aliceblue;
-  font-size: 3rem;
-  font-weight: bold;
-  padding: 2rem;
-}
 .row {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
 }
+nav a{
+  color:aliceblue;
+  padding: 2rem;
+}
+a.catalogue {
+  color: aliceblue;
+  font-size: 3rem;
+  font-weight: bold;
+  padding: 2rem;
+}
+
 .row1{
   display: flex;
   flex-wrap: wrap;

@@ -6,7 +6,7 @@ import data from '../data';
 export default function ProductPage (props) {
     const product = data.products.find((x) => x._id === props.match.params.id);
     if(!product){
-        return <div>Articl non trouvé</div>
+        return <div>Article non trouvé</div>
     }
     return (
         <div>
@@ -22,7 +22,7 @@ export default function ProductPage (props) {
                     </li>
                     <li><Rating rating={product.rating} numReviews={product.numReviews}></Rating></li>
                     <li>Prix: €{product.price}</li>
-                    <li>Detail: <p>{product.description}</p></li>
+                    <li>Détails: <p>{product.description}</p></li>
                 </ul>
                 </div>
                 <div className="col-1"></div>

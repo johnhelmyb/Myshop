@@ -10,7 +10,7 @@ const data = {
           brand: 'Vaco',
           rating: 4.5,
           numReviews: 10,
-          description: 'Milleur qualité de cotton',
+          description: 'Meilleure qualité de coton',
         },
         { 
           _id: '2',
@@ -22,7 +22,7 @@ const data = {
           brand: 'Turing',
           rating: 4.5,
           numReviews: 9,
-          description: 'Milleur qualité de cotton',
+          description: 'Meilleure qualité de coton',
         },
         {
           _id: '3',
@@ -34,7 +34,7 @@ const data = {
           brand: ' Strok',
           rating: 4.5,
           numReviews: 14,
-          description: 'Milleur qualité de cotton',
+          description: 'Meilleure qualité de coton',
         }, 
         {
           _id: '4',
@@ -46,7 +46,7 @@ const data = {
           brand: 'Cube',
           rating: 4.5,
           numReviews: 8,
-          description: 'Milleur qualité de cotton',
+          description: 'Meilleure qualité de coton',
         },
       ],
     };

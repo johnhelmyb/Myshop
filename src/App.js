@@ -22,17 +22,17 @@ function App() {
     <div>
         <Link className="catalogue" to="/">Catalogue</Link>
       </div>
-      <div className="t"><Link to="/t-shirt">T-Shirts</Link></div>
-      <div className="s"><Link to="/sweatshirts">Sweatshirts</Link></div>
-      <div className="h"><Link to="/hoodies">Hoodies</Link></div>
-      <div className="i"><Link to="/signup">S'inscrire</Link></div>
+      <div><Link to="/t-shirt">T-Shirts</Link></div>
+      <div><Link to="/sweatshirts">Sweatshirts</Link></div>
+      <div><Link to="/hoodies">Hoodies</Link></div>
+      <div><Link to="/signup">S'inscrire</Link></div>
       </nav>
     <main>
     <Route path="/product/:id" component={ProductPage}></Route>
     <Route path="/" component={HomePage} exact></Route>
     </main>
 
-    <footer className="row center">Conditions générales</footer>
+    <footer className="row center">Conditions generales</footer>
   </div>
   </BrowserRouter>
   );
