@@ -17,8 +17,8 @@ export default function ProductPage (props) {
         dispatch(detailsProduct(productId));
     }, [dispatch, productId]);
     const addToCarteHandler = () => {
-        props.history.push(`/cart/${productId} ?qty={qty}`);
-    }
+        props.history.push(`/cart/${productId}?qty=${qty}`);
+    };
     return (
         <div>
         {loading ? <LoadingBox></LoadingBox> : error ? (  

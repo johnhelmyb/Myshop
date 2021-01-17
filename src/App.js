@@ -1,9 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; 
-//import Product from './components/product';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Link } from 'react-router-dom';
 import ProductPage from './Page/ProductPage';
 import HomePage from './Page/HomePage';
+import cartPage from './Page/cartPage';
 
 function App() {
   return (
@@ -19,20 +18,19 @@ function App() {
       </div>
     </header>
     <nav className="row1">
-    <div>
-        <Link className="catalogue" to="/">Catalogue</Link>
-      </div>
+      <div><Link className="catalogue" to="/">Catalogue</Link></div>
       <div><Link to="/t-shirt">T-Shirts</Link></div>
       <div><Link to="/sweatshirts">Sweatshirts</Link></div>
       <div><Link to="/hoodies">Hoodies</Link></div>
+      <div><Link to="/promo">PROMO</Link></div>
       <div><Link to="/signup">S'inscrire</Link></div>
       </nav>
     <main>
+    <Route path="/cart/:id?" component={cartPage}></Route>
     <Route path="/product/:id" component={ProductPage}></Route>
     <Route path="/" component={HomePage} exact></Route>
     </main>
-
-    <footer className="row center">Conditions generales</footer>
+    <footer className="row center"><h4>Conditions generales</h4></footer>
   </div>
   </BrowserRouter>
   );
