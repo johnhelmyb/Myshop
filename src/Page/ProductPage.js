@@ -1,14 +1,24 @@
-import React from 'react'
-import { useSelector } from 'react-redux';
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { detailsProduct } from '../actions/productActions';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 import Rating from '../components/Rating';
 
 export default function ProductPage (props) {
+    const dispatch = useDispatch();
+    const productId = props.match.params.id;
+    const [qty, setQty] = useState(1);
     const productDetails = useSelector((state) => state.productDetails);
     const { loading, error, product } = productDetails;
 
+    useEffect(() => {
+        dispatch(detailsProduct(productId));
+    }, [dispatch, productId]);
+    const addToCarteHandler = () => {
+        props.history.push(`/cart/${productId} ?qty={qty}`);
+    }
     return (
         <div>
         {loading ? <LoadingBox></LoadingBox> : error ? (  
@@ -47,8 +57,23 @@ export default function ProductPage (props) {
                                     )}
                                 </div>
                             </div>
+                            { product.countInStock > 0 && (
+                                <>
+                                <li><div className="row"></div>
+                                    <div>Qts</div>
+                                    <div>
+                                        <select value={qty} onChange={e => setQty(e.target.value)}>
+                                            {[...Array(product.countInStock).keys()].map(
+                                                (x) => (<option value={x+1}>{x+1}</option>)
+                                            )}
+                                        </select>
+                                    </div>
+                                </li>
+                                <li><button onClick={addToCarteHandler} className="primary">Ajouter au panier</button></li>
+                                </>
+                            )}
                         </li>
-                        <li><button className="primary">Ajouter au panier</button></li>
+                        
                     </ul>
                 </div>
             </div>

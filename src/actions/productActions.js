@@ -14,15 +14,16 @@ export const listProducts = () => async (dispatch) => {
         dispatch({ type: PRODUCT_LIST_FAIL, payload: error.message });
     }
 }
-export const detailProduct = (productId) => async (dispatch) => {
+export const detailsProduct = (productId) => async (dispatch) => {
     dispatch({ type: PRODUCT_LIST_REQUEST, payload: productId });
     try {
-        const { data } = await Axios.get(`/api/product/${productId}`);
+        const { data } = await Axios.get(`/api/products/${productId}`);
         dispatch({ type: PRODUCT_LIST_SUCCESS, payload: data });
     } catch (error) {
         dispatch({ 
-            type: PRODUCT_LIST_FAIL, payload: error.message && error.response.data.message ?
-            error.response.data.message : error.message
-        })
+            type: PRODUCT_LIST_FAIL, payload: error.message &&
+            error.response.data.message ?
+            error.response.data.message : error.message,
+        });
     }
-}
+};
