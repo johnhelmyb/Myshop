@@ -1,16 +1,28 @@
-import axios from "axios";
+import Axios from "axios";
 import { PRODUCT_LIST_FAIL, 
          PRODUCT_LIST_REQUEST,
-         PRODUCT_LIST_SECCESS } from "../constants/productConstants";
+         PRODUCT_LIST_SUCCESS } from "../constants/productConstants";
 
 export const listProducts = () => async (dispatch) => {
     dispatch({
         type: PRODUCT_LIST_REQUEST
     });
     try{
-        const { data } = await axios.get('api/products'); // send ajax request to get list of products
-        dispatch({type: PRODUCT_LIST_SECCESS, payload: data });
+        const { data } = await Axios.get('api/products'); // send ajax request to get list of products
+        dispatch({type: PRODUCT_LIST_SUCCESS, payload: data });
     }catch(error){
         dispatch({ type: PRODUCT_LIST_FAIL, payload: error.message });
+    }
+}
+export const detailProduct = (productId) => async (dispatch) => {
+    dispatch({ type: PRODUCT_LIST_REQUEST, payload: productId });
+    try {
+        const { data } = Axios.get(`/api/product/${productId}`);
+        dispatch({ type: PRODUCT_LIST_SUCCESS, payload: data });
+    } catch (error) {
+        dispatch({ 
+            type: PRODUCT_LIST_FAIL, payload: error.message && error.response.data.message ?
+            error.response.data.message : error.message
+        })
     }
 }

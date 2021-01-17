@@ -1,15 +1,19 @@
 import React from 'react'
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import LoadingBox from '../components/LoadingBox';
+import MessageBox from '../components/MessageBox';
 import Rating from '../components/Rating';
-import data from '../data';
 
 export default function ProductPage (props) {
-    const product = data.products.find((x) => x._id === props.match.params.id);
-    if(!product){
-        return <div>Article non trouvé</div>
-    }
+    const productDetails = useSelector((state) => state.productDetails);
+    const { loading, error, product } = productDetails;
+
     return (
         <div>
+        {loading ? <LoadingBox></LoadingBox> : error ? (  
+        <MessageBox variant="danger">{error}</MessageBox> ) : ( 
+            <div>
             <Link to="/">Retour</Link>
             <div className="row">
                 <div className="col-2">
@@ -36,7 +40,7 @@ export default function ProductPage (props) {
                         </li>
                         <li>
                             <div className="row">
-                                <div>Article :</div>
+                                <div>Article </div>
                                 <div>
                                     { product.countInStock > 0 ? ( <span className="success">En Stock</span>
                                     ) : ( <span className="error"> Indisponible </span>
@@ -49,6 +53,9 @@ export default function ProductPage (props) {
                 </div>
             </div>
         </div>
-    )
+        )}
+    </div>
+
+    );
 }
 
