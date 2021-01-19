@@ -3,8 +3,11 @@ import { BrowserRouter, Route, Link } from 'react-router-dom';
 import ProductPage from './Page/ProductPage';
 import HomePage from './Page/HomePage';
 import cartPage from './Page/CartPage';
+import { useSelector } from 'react-redux';
 
 function App() {
+  const cart = useSelector((state) => state.cart); /*access to redux store*/
+  const { cartItems } = cart;
   return (
     <BrowserRouter>
     <div classNameName="grid-container">
@@ -13,7 +16,7 @@ function App() {
         <Link className="brand" to="/">MyShop</Link>
       </div>
       <div>
-        <Link to="/cart">Panier</Link>
+        <Link to="/cart"> Panier</Link>
         <Link to="/signin">Se connecter</Link>
       </div>
     </header>
