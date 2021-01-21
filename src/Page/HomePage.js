@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import Product from '../components/product';
+import Product from '../components/Product';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 import { useDispatch, useSelector } from 'react-redux';
@@ -14,11 +14,15 @@ export default  function HomePage() {
     }, [dispatch]);
     return(
         <div>
-            {loading ? <LoadingBox></LoadingBox> : error ? (  
-            <MessageBox variant="danger">{error}</MessageBox> ) : ( 
+            {loading ? (
+            <LoadingBox></LoadingBox>
+            ) : error ? (  
+            <MessageBox variant="danger">{error}</MessageBox>
+            ) : ( 
             <div className="row center">
                 {products.map((product) => (
-                <Product key={product._id} product={product}></Product>))}
+                <Product key={product._id} product={product}></Product>
+                ))}
             </div>
             )}
         </div>
