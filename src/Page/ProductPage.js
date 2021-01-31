@@ -42,8 +42,8 @@ export default function ProductPage (props) {
                             <h1>{product.name}</h1>
                         </li>
                         <li><Rating rating={product.rating} numReviews={product.numReviews}></Rating></li>
-                        <li>Prix: €{product.price}</li>
-                        <li>Détails: <p>{product.description}</p></li>
+                        <li>Prix €{product.price}</li>
+                        <li>Détails <p>{product.description}</p></li>
                     </ul>
                 </div>
                 <div className="col-1"></div>
@@ -51,7 +51,7 @@ export default function ProductPage (props) {
                     <ul>
                         <li>
                             <div className="row">
-                                <div>Prix</div>
+                                <div>Prix </div>
                                 <div className="price">€{product.price}</div>
                             </div>
                         </li>
@@ -70,7 +70,7 @@ export default function ProductPage (props) {
                             product.countInStock > 0 && (
                                 <><li>
                                     <div className="row">
-                                    <div>Qts</div>
+                                    <div>Qté :</div>
                                     <div>
                                         <select 
                                         value={qty} 
@@ -79,7 +79,8 @@ export default function ProductPage (props) {
                                                 [...Array(product.countInStock).keys()].map(
                                                     (x) => (
                                                     <option key={x + 1} value={x + 1}>
-                                                        {x + 1}</option>
+                                                        {x + 1}
+                                                    </option>
                                                     )
                                                 )}
                                         </select>
@@ -87,7 +88,7 @@ export default function ProductPage (props) {
                                     </div>
                                 </li>
                                 <li>
-                                    <button onClick={addToCartHandler} className="primary">Ajouter au panier</button>
+                                    <button onClick={addToCartHandler} className="primary">Au panier</button>
                                     </li>
                                 </>
                             )}      

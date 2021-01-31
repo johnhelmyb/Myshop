@@ -25,16 +25,6 @@ body {
   grid-template-rows: 5rem 1fr 5rem;
   height: 100%;
 }
-.grid-container1 {
-  display: grid;
-  grid-template-areas:
-    'header'
-    'main'
-    'footer';
-  grid-template-columns: 1fr;
-  grid-template-rows: 5rem 1fr 5rem;
-  height: 100%;
-}
 header {
   border-radius: 1rem;
   grid-area: header;
@@ -66,7 +56,7 @@ a {
   text-decoration: none;
 }
 a:hover {
-  color: gray;
+  color: #808080;
 }
 ul {
   padding: 0;
@@ -80,8 +70,9 @@ input,
 select, 
 textarea,
 button {
-  padding: 1rem;
-  border-radius: 0.5rem;
+  padding: 0.5rem;
+  margin: 1rem;
+  border-radius: 1rem;
   border: 0.1rem aliceblue solid;
   font-size: 1.6rem;
   font-family: Helvetica, Arial, sans-serif;
@@ -92,6 +83,7 @@ button {
 button {
   background-color: #6ca3de;
   cursor: pointer;
+  align-items: center;
 }
 input:hover,
 select:hover,
@@ -135,10 +127,10 @@ a.brand {
 }
 
 .col-1 {
-  flex: 1 1 50rem;
+  flex: 1 1 0rem;
 }
 .col-2 {
-  flex: 2 1 50rem;
+  flex: 2 1 45rem;
 }
 .min-30 {
   min-width: 30rem;
@@ -148,7 +140,7 @@ img {
   border-radius: 3rem;
 }
 img.small {
-  max-width: 9rem;
+  max-width: 6rem;
   width: 100%;
 }
 img.medium {
@@ -174,7 +166,7 @@ img.larg{
   margin-bottom: 0.5rem;
 }
 .price {
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
 /* Rating */
 .rating span {

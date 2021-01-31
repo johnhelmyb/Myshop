@@ -10,7 +10,7 @@ const data = {
         brand: 'Vaco',
         rating: 4.5,
         numReviews: 10,
-        description: 'Milleur qualité de cotton',
+        description: 'Meilleure qualité de coton',
       },
       { 
         _id: '2',
@@ -22,7 +22,7 @@ const data = {
         brand: 'Turing',
         rating: 4.2,
         numReviews: 5,
-        description: 'Milleur qualité de cotton',
+        description: 'Meilleure qualité de coton',
       },
       {
         _id: '3',
@@ -34,7 +34,7 @@ const data = {
         brand: ' Strok',
         rating: 4.5,
         numReviews: 8,
-        description: 'Milleur qualité de cotton',
+        description: 'Meilleure qualité de coton',
       }, 
       {
         _id: '4',
@@ -46,11 +46,11 @@ const data = {
         brand: 'Cube',
         rating: 4.5,
         numReviews: 8,
-        description: 'Milleur qualité de cotton',
+        description: 'Meilleure qualité de coton',
       },
       {
         _id: '5',
-        name: 'T-Shirt',
+        name: 'Dimand',
         category: 'T-Shirt',
         image: '/images/dimand.png',
         price: 26,
@@ -58,7 +58,7 @@ const data = {
         brand: 'Cube',
         rating: 4.5,
         numReviews: 8,
-        description: 'Milleur qualité de cotton',
+        description: 'Meilleure qualité de coton',
       },
       {
         _id: '6',
@@ -70,7 +70,7 @@ const data = {
         brand: 'Cube',
         rating: 4.5,
         numReviews: 8,
-        description: 'Milleur qualité de cotton',
+        description: 'Meilleure qualité de coton',
       },
       {
         _id: '7',
@@ -82,7 +82,7 @@ const data = {
         brand: 'Cube',
         rating: 4.5,
         numReviews: 8,
-        description: 'Milleur qualité de cotton',
+        description: 'Meilleure qualité de coton',
       },
       {
         _id: '8',
@@ -94,7 +94,7 @@ const data = {
         brand: 'Cube',
         rating: 4.5,
         numReviews: 8,
-        description: 'Milleur qualité de cotton',
+        description: 'Meilleure qualité de coton',
       },
     ],
   };

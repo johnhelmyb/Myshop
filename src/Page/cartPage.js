@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { addToCart } from '../actions/cartActions';
+import { addToCart, removeFromCart } from '../actions/cartActions';
 import MessageBox from '../components/MessageBox';
 
 export default function CartPage(props) {
@@ -16,8 +16,8 @@ export default function CartPage(props) {
             dispatch(addToCart(productId, qty));
         }
     }, [dispatch, productId, qty]);
-    const removeFromCartHandler =(id) => {
-
+    const removeFromCartHandler = (id) => {
+        dispatch(removeFromCart(id));
     };
     const checkoutHandler = () => {
         props.history.push('/signin?redirect=shipping');
@@ -47,19 +47,21 @@ export default function CartPage(props) {
                                             value={item.qty} 
                                             onChange={(e) => 
                                                 dispatch(
-                                                    addToCart(item.product, Number(e.target.value))
+                                                    addToCart(item.product,Number(e.target.value))
                                                 )
                                             }
                                         >
                                                 {[...Array(item.countInStock).keys()].map((x) => (
                                                 <option key={x + 1} value={x + 1}>
-                                                    {x + 1}</option>
+                                                    {x + 1}
+                                                    </option>
                                                     ))}
                                             </select>
                                     </div>
                                     <div>€{item.price}</div>
                                     <div>
-                                        <button type="button" onClick={() => removeFromCartHandler(item.product)}>
+                                        <button type="button" onClick={() => removeFromCartHandler(item.product)}
+                                        >
                                             Effacer
                                         </button>
                                     </div>
@@ -70,19 +72,20 @@ export default function CartPage(props) {
                     </ul>
                 )}
             </div>
-            <div children="col-1">
+            <div className="col-1">
                 <div className="card card-bidy">
                     <ul>
                         <li>
-                            <h2>Total({cartItems.reduce((a, c) => a + c.qty, 0)} items) : $
+                            <h2>Total({cartItems.reduce((a, c) => a + c.qty, 0)} Articles) : €
                             {cartItems.reduce((a, c) => a + c.price * c.qty, 0)}</h2>
                         </li>
                         <li>
                             <button 
                             tyoe="button" 
                             onClick={checkoutHandler} 
-                            className="primary" 
-                            disabled={cartItems.length === 0}>
+                            className="primary block" 
+                            disabled={cartItems.length === 0}
+                            >
                                 Valider
                             </button>
                         </li>
