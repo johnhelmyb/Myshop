@@ -4,13 +4,14 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import store from './store';
-import { GlobalStyles } from './global-styles';
+import axios from 'axios';
+
+axios.defaults.baseURL = 'http://localhost:3001';
 
 ReactDOM.render(
   
   <Provider store={store}>
   <React.StrictMode>
-  <GlobalStyles />
     <App />
   </React.StrictMode></Provider>,
   document.getElementById('root')
