@@ -4,7 +4,6 @@ import { BrowserRouter, Route, Link } from 'react-router-dom';
 import ProductPage from './Page/ProductPage';
 import HomePage from './Page/HomePage';
 import CartPage from './Page/CartPage';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import Login from './components/login';
 import Register from './components/register';
 
