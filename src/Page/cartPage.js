@@ -47,7 +47,7 @@ export default function CartPage(props) {
                                             value={item.qty} 
                                             onChange={(e) => 
                                                 dispatch(
-                                                    addToCart(item.product,Number(e.target.value))
+                                                    addToCart(item.product, Number(e.target.value))
                                                 )
                                             }
                                         >
@@ -73,15 +73,16 @@ export default function CartPage(props) {
                 )}
             </div>
             <div className="col-1">
-                <div className="card card-bidy">
+                <div className="card card-body">
                     <ul>
                         <li>
                             <h2>Total({cartItems.reduce((a, c) => a + c.qty, 0)} Articles) : €
-                            {cartItems.reduce((a, c) => a + c.price * c.qty, 0)}</h2>
+                            {cartItems.reduce((a, c) => a + c.price * c.qty, 0)}
+                            </h2>
                         </li>
                         <li>
                             <button 
-                            tyoe="button" 
+                            type="button" 
                             onClick={checkoutHandler} 
                             className="primary block" 
                             disabled={cartItems.length === 0}
