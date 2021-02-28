@@ -1,0 +1,4 @@
+export const USER_SIGNIN_REQUEST = 'const USER_SIGNIN_REQUEST';
+export const USER_SIGNIN_SUCCESS = 'const USER_SIGNIN_SUCCESS';
+export const USER_SIGNIN_FAIL = 'const USER_SIGNIN_FAIL';
+export const USER_SIGNOUT = 'USER_SIGNOUT';
