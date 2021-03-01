@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
 import ProductPage from './Page/ProductPage';
 import HomePage from './Page/HomePage';
@@ -7,12 +7,17 @@ import CartPage from './Page/CartPage';
 import SigninPage from './Page/SigninPage';
 import Register from './components/register';
 import Footer from './components/Footer';
+import { signout } from './actions/userActions';
 
 function App() {
   const cart = useSelector((state) => state.cart); /*access to redux store*/
   const { cartItems } = cart;
   const userSignin = useSelector((state) => state.userSignin);
   const { userInfo } = userSignin;
+  const dispatch = useDispatch();
+  const signoutHandler =() => {
+    dispatch(signout());
+  }
   return (
     <BrowserRouter>
     <div className="grid-container">
@@ -29,6 +34,9 @@ function App() {
             userInfo ? (
               <div className="dropdown">
               <Link to="#">{userInfo.name}</Link>
+              <ul className="dropdown-content">
+                <Link to="signout" onClick={signoutHandler}>Se deconnecter</Link>
+              </ul>
               </div>
             ) : (
               <Link to="signinpage">Se connecter</Link>
