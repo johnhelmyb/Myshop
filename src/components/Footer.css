@@ -1,15 +1,21 @@
 .main-footer {
-    padding: 2px;
+    padding: 0px;
     margin: 0;
     color: aliceblue;
     background-color: #6ca3de;
-    size: 20px;
+    size: 16px;
     display: flex;
     flex-direction: column;
-    min-height: 35vh;
+    min-height: 30vh;
 }
 .col{
-    margin: 2rem;
+    margin: 3rem;
 }
-
-
+.h3{
+    align-items: center;
+}
+ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+  }

@@ -1,6 +1,6 @@
 import React from 'react'
 import "./Footer.css";
-
+import { Link } from 'react-router-dom';
 const Footer = () => {
     return (
         <div className="main-footer">
@@ -8,51 +8,50 @@ const Footer = () => {
                 <div className="row">
                     {/*Column1*/}
                     <div className="col">
-                        <h3>Service</h3>
+                        <h3>Paiement et Livraison</h3>
                         <ul className="list-unstyled">
-                            <li>1</li>
-                            <li>2</li>
-                            <li>3</li>
-                            <li>4</li>
+                            <li><p>Moyens de Paiement</p></li>
+                        </ul>
+                        <h3>Livraison Rapide</h3>
+                        <ul className="list-unstyled">
+                            <li><p>Partenaire Mondial de DHL</p></li>
                         </ul>
                     </div>
                     {/*Column2*/}
                     <div className="col">
-                        <h3>Service</h3>
+                        <h3>Sortis de l'Usine</h3>
                         <ul className="list-unstyled">
-                            <li>1</li>
-                            <li>2</li>
-                            <li>3</li>
-                            <li>4</li>
+                            <li><p>Evitez les Intermédiaires</p></li>
+                            <h3>Sûr & Fiable</h3>
+                        <ul className="list-unstyled">
+                            <li><p>Paiment sécurisé </p></li>
+                        </ul>
                         </ul>
                     </div>
                     {/*Column3*/}
                     <div className="col">
-                        <h3>Service</h3>
+                        <h3>Service Client</h3>
                         <ul className="list-unstyled">
-                            <li>1</li>
-                            <li>2</li>
-                            <li>3</li>
-                            <li>4</li>
+                            <li><p>Garantie Satisfaction de 7 Jours</p></li>
+                        <h3>Service Cordial</h3>
+                        <ul className="list-unstyled">
+                            <li><p>Nous contacter</p></li>
+                        </ul>
                         </ul>
                     </div>
                     {/*Column4*/}
                     <div className="col">
-                        <h3>Service</h3>
+                        <h3>Qui sommes-nous?</h3>
                         <ul className="list-unstyled">
-                            <li>1</li>
-                            <li>2</li>
-                            <li>3</li>
-                            <li>4</li>
+                            <li><p>A propos de MyShop </p></li>
+                        </ul>
+                        <div> <Link to="/footerPages/conditionGdeVente.js">Informations Légales</Link></div>
+                        <ul className="list-unstyled">
+                            <li><p>Conditions Générales de Vente</p></li>
                         </ul>
                     </div>
                 </div>
-                <hr/>
-                <div className="row">
-                    <p className="col-small">
-                        &copy;{new Date().getFullYear()} MYSHOP CO | Droit reservé | Conditions générales | Aide ?
-                    </p>
-                </div>
+
             </div>
         </div>
     )

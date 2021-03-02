@@ -5,9 +5,10 @@ import ProductPage from './Page/ProductPage';
 import HomePage from './Page/HomePage';
 import CartPage from './Page/CartPage';
 import SigninPage from './Page/SigninPage';
-import Register from './components/register';
+import Register from './components/Register';
 import Footer from './components/Footer';
 import { signout } from './actions/userActions';
+import conditionGdeVente from './footerPages/conditionGdeVente';
 
 function App() {
   const cart = useSelector((state) => state.cart); /*access to redux store*/
@@ -49,6 +50,7 @@ function App() {
         <Route exact path="/product/:id" component={ProductPage}></Route>
         <Route exact path ="/signinpage" component={SigninPage}></Route>
         <Route exact path ="/register" component={Register}></Route>
+        <Route path="/footerPages/conditionGdeVente" component={conditionGdeVente}></Route>
     </main>
     <Footer />
   </div>

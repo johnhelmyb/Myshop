@@ -21,7 +21,7 @@ const reducer = combineReducers({
       cart: cartReducer,
       userSignin: userSigninReducer,
 });
-const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose; // to show redux store in redux devtools
 const store = createStore(
     reducer, initialState, composeEnhancer(applyMiddleware(thunk))
     );

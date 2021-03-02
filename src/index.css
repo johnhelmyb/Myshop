@@ -34,14 +34,14 @@ main {
   grid-area: main;
   padding: 1rem;
 }
-footer {
+/*footer {
   grid-area: footer;
   block-size: 10rem;
   margin: 0.5rem;
   border-radius: 1rem;
   background-color: #6ca3de;
   color: #ffffff;
-}
+}*/
 /* Common */
 h1 {
   font-size: 1.8rem;
@@ -371,38 +371,3 @@ img.larg{
   widows: 100%;
 }
 
-.auth-wrapper {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  text-align: left;
-}
-
-.auth-inner {
-width: 450px;
-margin: auto;
-background: aliceblue;
-box-shadow: 6px 14px 80px #848fce;
-padding: 40px 55px 45px 55px;
-border-radius: 15px;
-transition: all .3s;
-}
-.auth-wrapper .form-control:focus{
-  border-color: #1f436a;
-  box-shadow: none;
-}
-
-.custom-control-label {
-  font-weight: 400;
-}
-.forgot-password,
-.forgot-password a {
-  text-align: right;
-  font-size: 12px;
-  padding-top: 10px;
-  color: #6ca3de;
-  margin: 0;
-}
-.forgot-password a {
-  color: #6ca3de;
-}

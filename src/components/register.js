@@ -5,8 +5,7 @@ export default class Register extends Component {
     handleSubmit = e =>{
         e.prevenetDefault();
         const data = {
-            first_name: this.firstName,
-            last_name: this.lastName,
+            name: this.name,
             email: this.email,
             password: this.password,
             password_confirm: this.confirmPassword
@@ -25,18 +24,11 @@ export default class Register extends Component {
     render() {
          return (
         <form onSubmit={this.handleSubmit}>
-
             <h3>S'inscrire</h3>
             <div className="form-group">
                 <label>Nom</label>
                 <input type="text" className="form-control" placeholder=""
-                onChange={e => this.lastName = e.target.value}/>
-            </div>
-
-            <div className="form-group">
-                <label>Prénom</label>
-                <input type="text" className="form-control" placeholder=""
-                onChange={e => this.firstName = e.target.value}/>
+                onChange={e => this.name = e.target.value}/>
             </div>
 
             <div className="form-group">
@@ -63,4 +55,4 @@ export default class Register extends Component {
     }
 
     
-}
+};
