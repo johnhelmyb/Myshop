@@ -18,6 +18,7 @@ export default function product(props) {
                  numReviews={product.numReviews}
                 ></Rating>
               <div className="price">€{product.price}</div>
+              <button  className="primary block">Ajouter</button>
             </div>
         </div>
     );

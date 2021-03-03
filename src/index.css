@@ -26,9 +26,16 @@ body {
   height: 100%;
 }
 header {
-  border-radius: 1rem;
+  height: 70px;
   grid-area: header;
   background-color: #6ca3de;
+}
+.burger{
+  color: #d9dee3f9;
+  background-color: #6ca3de;
+  margin: 15px;
+  border-radius: 30px;
+  padding: 5px;
 }
 main {
   grid-area: main;
@@ -44,11 +51,11 @@ main {
 }*/
 /* Common */
 h1 {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   padding: 1rem 0;
 }
 h2 {
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   padding: 1rem 0;
 }
 /*nav-text*/
@@ -199,10 +206,10 @@ img.larg{
   border: 0.1rem #848fce solid;
   background-color: aliceblue;
   border-radius: 0.5rem;
-  margin: 1rem;
+  margin: 2rem;
 }
 .card-body {
-  padding: 1rem;
+  padding: 2rem;
 }
 .card-body > * {
   margin-bottom: 0.5rem;
@@ -247,7 +254,7 @@ img.larg{
 }
 /* Form */
 .form {
-  max-width: 60rem;
+  max-width: 50rem;
   margin: 0 auto;
 }
 .form > div {
@@ -259,6 +266,7 @@ img.larg{
   margin: 1rem 0;
   display: block;
 }
+
 /* Dropdown */
 .dropdown {
   display: inline-block;
@@ -270,7 +278,7 @@ img.larg{
   right: 0;
   min-width: 12rem;
   padding: 1rem;
-  z-index: 1;
+  z-index: 1; /*send to top*/
   background-color: #203040;
   margin: 0;
   margin-top: 0.4rem;
@@ -343,7 +351,7 @@ img.larg{
   border-bottom: .1rem aliceblue;
 }
 .product-name {
-  font-size: 1.5rem;
+  font-size: 2rem;
 
 }
 .product-brand {

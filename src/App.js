@@ -5,7 +5,7 @@ import ProductPage from './Page/ProductPage';
 import HomePage from './Page/HomePage';
 import CartPage from './Page/CartPage';
 import SigninPage from './Page/SigninPage';
-import Register from './components/Register';
+import Register from './Page/Register';
 import Footer from './components/Footer';
 import { signout } from './actions/userActions';
 import conditionGdeVente from './footerPages/conditionGdeVente';
@@ -23,7 +23,8 @@ function App() {
     <BrowserRouter>
     <div className="grid-container">
     <header className="row">
-      <div>
+      <div className="brand">
+        <button className="burger" onClick="openMenu">&#9776;</button>
         <Link className="brand" to="/">MyShop</Link>
       </div>
       <div>
@@ -31,12 +32,14 @@ function App() {
         <span className="badge">{cartItems.length}</span>
           )}
           </Link>
-          {
-            userInfo ? (
+          {userInfo ? (
               <div className="dropdown">
-              <Link to="#">{userInfo.name}</Link>
+              <Link to="#">
+                {userInfo.name}<i className="fa fa-caret-down"></i>{' '}
+                </Link>
               <ul className="dropdown-content">
-                <Link to="signout" onClick={signoutHandler}>Se deconnecter</Link>
+                <Link to="#signout" onClick={signoutHandler}>
+                  Se deconnecter</Link>
               </ul>
               </div>
             ) : (

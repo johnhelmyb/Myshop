@@ -24,7 +24,7 @@ export default function CartPage(props) {
     const removeFromCartHandler = (id) => {
         dispatch(removeFromCart(id));
     };
-    
+
     const checkoutHandler = () => {
         props.history.push('/signin?redirect=shipping');
     }
@@ -93,7 +93,7 @@ export default function CartPage(props) {
                             type="button" 
                             onClick={checkoutHandler} 
                             className="primary block" 
-                            disabled={cartItems.length === 0}
+                            disabled={cartItems.length === 0} // do not show button if it's 0
                             >
                                 Valider
                             </button>
