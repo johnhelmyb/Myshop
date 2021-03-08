@@ -1,99 +1,210 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { register } from '../actions/userActions';
-import LoadingBox from '../components/LoadingBox';
-import MessageBox from '../components/MessageBox';
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
+import axios from 'axios';
 
-export default function Register(props) {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
+const registerButton = {
+  background: 'green',
+  padding: '1em',
+  margin: '1em',
+};
 
-  const redirect = props.location.search
-    ? props.location.search.split('=')[1]
-    : '/';
+const homeButton = {
+  background: 'mediumpurple',
+  padding: '1em',
+  margin: '1em',
+};
 
-  const userRegister = useSelector((state) => state.userRegister);
-  const { userInfo, loading, error } = userRegister;
+const loginButton = {
+  background: 'royalblue',
+  padding: '1em',
+  margin: '1em',
+};
 
-  const dispatch = useDispatch();
-  const submitHandler = (e) => {
-    e.preventDefault();
-    if (password !== confirmPassword) {
-      alert('Mot de pass / confirm mot de pass pas idantique');
-    } else {
-      dispatch(register(name, email, password));
-    }
+const inputStyle = {
+  margin: '.5em',
+};
+
+const linkStyle = {
+  textDecoration: 'none',
+  color: 'white',
+};
+
+const title = {
+  pageTitle: 'Register Screen',
+};
+
+class Register extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      first_name: '',
+      last_name: '',
+      email: '',
+      username: '',
+      password: '',
+      messageFromServer: '',
+      showError: false,
+      registerError: false,
+      loginError: false,
+    };
+  }
+
+  handleChange = name => event => {
+    this.setState({
+      [name]: event.target.value,
+    });
   };
-  useEffect(() => {
-    if (userInfo) {
-      props.history.push(redirect);
+
+  registerUser = e => {
+    e.preventDefault();
+    axios
+      .post('http://localhost:3003/registerUser', {
+        first_name: this.state.first_name,
+        last_name: this.state.last_name,
+        email: this.state.email,
+        username: this.state.username,
+        password: this.state.password,
+      })
+      .then(response => {
+        console.log(response.data);
+        if (response.data === 'username already taken') {
+          this.setState({
+            showError: true,
+            loginError: true,
+            registerError: false,
+          });
+        } else if (response.data === 'username and password required') {
+          this.setState({
+            showError: true,
+            registerError: true,
+            loginError: false,
+          });
+        } else {
+          this.setState({
+            messageFromServer: response.data,
+            showError: false,
+            loginError: false,
+            registerError: false,
+          });
+        }
+      })
+      .catch(error => {
+        console.log(error.data);
+      });
+  };
+
+  render() {
+    const {
+      first_name,
+      last_name,
+      email,
+      username,
+      password,
+      messageFromServer,
+      showError,
+      loginError,
+      registerError,
+    } = this.state;
+
+    if (messageFromServer === '') {
+      return (
+        <div>
+          <HeaderBar title={title} />
+          <form className="profile-form" onSubmit={this.registerUser}>
+            <TextField
+              style={inputStyle}
+              id="first_name"
+              label="first_name"
+              value={first_name}
+              onChange={this.handleChange('first_name')}
+              placeholder="First Name"
+            />
+            <TextField
+              style={inputStyle}
+              id="last_name"
+              label="last_name"
+              value={last_name}
+              onChange={this.handleChange('last_name')}
+              placeholder="Last Name"
+            />
+            <TextField
+              style={inputStyle}
+              id="email"
+              label="email"
+              value={email}
+              onChange={this.handleChange('email')}
+              placeholder="Email"
+            />
+            <TextField
+              style={inputStyle}
+              id="username"
+              label="username"
+              value={username}
+              onChange={this.handleChange('username')}
+              placeholder="Username"
+            />
+            <TextField
+              style={inputStyle}
+              id="password"
+              label="password"
+              value={password}
+              onChange={this.handleChange('password')}
+              placeholder="Password"
+              type="password"
+            />
+            <Button
+              style={registerButton}
+              type="submit"
+              variant="contained"
+              color="primary"
+            >
+              Register
+            </Button>
+          </form>
+          {showError === true &&
+            registerError === true && (
+              <div>
+                <p>Username and password are required fields.</p>
+              </div>
+            )}
+          {showError === true &&
+            loginError === true && (
+              <div>
+                <p>
+                  That username is already taken. Please choose another or
+                  login.
+                </p>
+                <Button style={loginButton} variant="contained" color="primary">
+                  <Link style={linkStyle} to="/login">
+                    Go Login
+                  </Link>
+                </Button>
+              </div>
+            )}
+          <Button style={homeButton} variant="contained" color="primary">
+            <Link style={linkStyle} to="/">
+              Go Home
+            </Link>
+          </Button>
+        </div>
+      );
+    } else if (messageFromServer === 'user created') {
+      return (
+        <div>
+          <HeaderBar title={title} />
+          <h3>User successfully registered!</h3>
+          <Button style={loginButton} variant="contained" color="primary">
+            <Link style={linkStyle} to="/login">
+              Go Login
+            </Link>
+          </Button>
+        </div>
+      );
     }
-  }, [props.history, redirect, userInfo]);
-  return (
-    <div>
-      <form className="form" onSubmit={submitHandler}>
-        <div>
-          <h1 className="copmte">Créer un compte</h1>
-        </div>
-        {loading && <LoadingBox></LoadingBox>}
-        {error && <MessageBox variant="danger">{error}</MessageBox>}
-        <div>
-          <label htmlFor="name">Nom</label>
-          <input
-            type="text"
-            id="name"
-            placeholder=""
-            required
-            onChange={(e) => setName(e.target.value)}
-          ></input>
-        </div>
-        <div>
-          <label htmlFor="email">Email </label>
-          <input
-            type="email"
-            id="email"
-            placeholder=""
-            required
-            onChange={(e) => setEmail(e.target.value)}
-          ></input>
-        </div>
-        <div>
-          <label htmlFor="password">Mot de passe</label>
-          <input
-            type="password"
-            id="password"
-            placeholder=""
-            required
-            onChange={(e) => setPassword(e.target.value)}
-          ></input>
-        </div>
-        <div>
-          <label htmlFor="confirmPassword">Confirm Mot de passe</label>
-          <input
-            type="password"
-            id="confirmPassword"
-            placeholder=""
-            required
-            onChange={(e) => setConfirmPassword(e.target.value)}
-          ></input>
-        </div>
-        <div>
-          <label />
-          <button className="primary" type="submit">
-            Register
-          </button>
-        </div>
-        <div>
-          <label />
-          <div>
-            Déja client?{' '}
-            <Link to={`/signin?redirect=${redirect}`}>Se connecter</Link>
-          </div>
-        </div>
-      </form>
-    </div>
-  );
+  }
 }
+
+export default Register;

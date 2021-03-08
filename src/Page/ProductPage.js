@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector} from 'react-redux';
-import { Link } from 'react-router-dom';
-import { detailsProduct } from '../actions/productActions';
-import LoadingBox from '../components/LoadingBox';
-import MessageBox from '../components/MessageBox';
-import Rating from '../components/Rating';
+import { useDispatch, useSelector}    from 'react-redux';
+import { Link }                       from 'react-router-dom';
+import { detailsProduct }             from '../actions/productActions';
+import LoadingBox                     from '../components/LoadingBox';
+import MessageBox                     from '../components/MessageBox';
+import Rating                         from '../components/Rating';
 
 export default function ProductPage(props) {
     const dispatch = useDispatch();
@@ -61,7 +61,7 @@ export default function ProductPage(props) {
                             </li>
                             <li>
                                 <div className="row">
-                                <div>Article </div>
+                                <div>Articls </div>
                                 <div>
                                 { product.countInStock > 0 ? ( 
                                     <span className="success">En stock</span>

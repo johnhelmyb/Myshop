@@ -6,7 +6,7 @@ import
     USER_SIGNIN_SUCCESS,
     USER_SIGNIN_FAIL,
     USER_SIGNOUT, 
-    }  from '../constants/userConstante';
+    }  from '../constants/userConstants';
 
     export const userRegisterReducer = (state = {}, action) => {
       switch (action.type) {
@@ -17,7 +17,7 @@ import
         case USER_REGISTER_FAIL:
           return { loading: false, error: action.payload };
           case USER_SIGNOUT:
-          return {};
+          return {};// to remove data
         default:
           return state;
       }

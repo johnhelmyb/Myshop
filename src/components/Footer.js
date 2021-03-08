@@ -45,9 +45,9 @@ const Footer = () => {
                         <ul className="list-unstyled">
                             <li><p>A propos de MyShop </p></li>
                         </ul>
-                        <div> <Link to="/footerPages/conditionGdeVente.js">Informations Légales</Link></div>
+                        <div><p>Informations Légales</p></div>
                         <ul className="list-unstyled">
-                            <li><p>Conditions Générales de Vente</p></li>
+                            <li><Link to="/conditiondeVente">CGV</Link></li>
                         </ul>
                     </div>
                 </div>

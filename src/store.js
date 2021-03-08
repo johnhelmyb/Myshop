@@ -1,13 +1,18 @@
-import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
-import thunk from 'redux-thunk';
-import { cartReducer } from './reducers/cartReducers';
-import { productListReducer, productDetailsReducer } from './reducers/productReducers';
-import { userRegisterReducer, userSigninReducer } from './reducers/userReducers';
+import { applyMiddleware, 
+         combineReducers, 
+         compose, createStore } from 'redux';
+import thunk                    from 'redux-thunk';
+import { cartReducer }          from './reducers/cartReducers';
+import { productListReducer, 
+         productDetailsReducer,
+         productSaveReducer }   from './reducers/productReducers';
+import { userRegisterReducer, 
+         userSigninReducer }    from './reducers/userReducers';
 
 const initialState = {
     userSignin: {
         userInfo: localStorage.getItem('userInfo')
-          ? JSON.parse(localStorage.getItem('userInfo'))
+          ? JSON.parse(localStorage.getItem('userInfo'))//to convert it to object
           : null,
       },
     cart: {
@@ -20,7 +25,8 @@ const reducer = combineReducers({
       productDetails: productDetailsReducer,
       cart: cartReducer,
       userSignin: userSigninReducer,
-      userRegister: userRegisterReducer
+      userRegister: userRegisterReducer,
+      productSave: productSaveReducer,
 });
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose; // to show redux store in redux devtools
 const store = createStore(

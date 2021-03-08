@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { signin } from '../actions/userActions';
-import LoadingBox from '../components/LoadingBox';
-import MessageBox from '../components/MessageBox';
+import { useDispatch, useSelector }   from 'react-redux';
+import { Link }                       from 'react-router-dom';
+import { signin }                     from '../actions/userActions';
+import LoadingBox                     from '../components/LoadingBox';
+import MessageBox                     from '../components/MessageBox';
 
 export default function SigninScreen(props) {
   const [email, setEmail] = useState('');
@@ -19,13 +19,13 @@ export default function SigninScreen(props) {
   const dispatch = useDispatch();
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch(signin(email, password)); //function dispatch
+    dispatch(signin(email, password)); //function dispatch signin 
   };
   useEffect(() => {
     if (userInfo) {
-      props.history.push(redirect);
+      props.history.push(redirect);// redirect to the home
     }
-  }, [props.history, redirect, userInfo]);
+  }, [props.history, redirect, userInfo]);// list of indepandencies, call functon 
   return (
     <div>
       <form className="form" onSubmit={submitHandler}>
@@ -39,7 +39,7 @@ export default function SigninScreen(props) {
           <input
             type="email"
             id="email"
-            placeholder=""
+            placeholder=" "
             required
             onChange={(e) => setEmail(e.target.value)}
           ></input>
@@ -49,7 +49,7 @@ export default function SigninScreen(props) {
           <input
             type="password"
             id="password"
-            placeholder=""
+            placeholder=" "
             required
             onChange={(e) => setPassword(e.target.value)}
           ></input>
